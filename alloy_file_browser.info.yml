@@ -1,0 +1,7 @@
+name: Alloy File Browser
+type: module
+description: Alloy file browser tweaks
+core: 8.x
+package: Alloy
+dependencies:
+- file_browser
