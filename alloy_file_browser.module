@@ -23,21 +23,3 @@ function alloy_file_browser_help($route_name, RouteMatchInterface $route_match) 
     default:
   }
 }
-
-/**
- * Implements hook_form_alter().
- */
-function alloy_file_browser_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  if ($form_id == 'entity_embed_dialog') {
-    file_browser_attach_file_browser_to_form($form);
-    $code = json_encode($form);
-    \Drupal::logger('alloy_file_browser')->notice('@form',
-        array(
-            '@form' => $code,
-        ));
-  }
-  if ($form_id == 'entity_browser_browse_files_modal_form') {
-    $form['selection_display']['#prefix'] = '<div class="selected-display">';
-    $form['selection_display']['#suffix'] = '</div>';
-  }
-}
